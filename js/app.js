@@ -66,14 +66,13 @@ function deleteNote(index){
     showNotes();
 }
 
-searchTxt = document.getElementById("searchTxt");
+let search = document.getElementById("searchTxt");
 search.addEventListener("input", function(){
-        let inputVal = search.value
+        let inputVal = search.value.toLowerCase();
     console.log("input event fired", inputVal);
     let noteCards = document.getElementsByClassName("noteCard");
     Array.from(noteCards).forEach(function(element){
         let cardTxt = element.getElementsByTagName("p")[0].innerText;
-        console.log(cardTxt);
         if(cardTxt.includes(inputVal)){
             element.style.display = "block";
         }
